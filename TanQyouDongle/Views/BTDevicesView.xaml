@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TanQyouDongle.Views.BTDevicesView"
+             x:Name="root">
+    <ContentPage.Content>
+        <StackLayout>
+            <RefreshView IsRefreshing="{Binding IsBusy,Mode=OneWay}" Command="{Binding GetDevicesCommand}" >
+                <CollectionView ItemsSource="{Binding Devices}" SelectionMode="Single" SelectedItem="{Binding SelectedDevice}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label Text="{Binding name}" FontSize="Large"/>
+                                <Label Text="{Binding UniqueId}" FontSize="Large"/>                              
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
